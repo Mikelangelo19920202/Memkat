@@ -28,7 +28,7 @@
 Безкоштовний tier є скрізь — але або watermark на відео, або заблокований експорт, або обмежений розмір файлу. Де-факто стандарт категорії. Джерела: Imgflip ($4.95 прибирає watermark [imgflip.com]), Kapwing ("UPGRADE" одразу в редакторі [kapwing-editor-desktop.png]), Veed (більшість фіч платно [veed.io]).
 
 **2. AI стало базовим, а не фічею.**
-CapCut, Kapwing, Veed — всі ставлять AI-генерацію в центр позиціонування. Clideo і Imgflip без AI виглядають старомодно вже зараз. Джерела: capcut.com ("AI-Powered Photo & Video Editor"), kapwing.com ("Make a video about anything" via AI prompt), veed.io (AI avatars, Eye Contact, dubbing).
+CapCut, Kapwing, Veed — всі ставлять AI-генерацію в центр позиціонування. Clideo і Imgflip без AI виглядають старомодно вже зараз. Джерела: capcut.com ("AI-Powered Photo & Video Editor" [capcut-home-mobile.png]), kapwing.com ("Make a video about anything" via AI prompt [kapwing-home-mobile.png]), veed.io (AI avatars, Eye Contact, dubbing [veed.io WebFetch]).
 
 **3. Жоден не поєднує вбудовану мем-бібліотеку з відеоредактором.**
 Підтверджено на всіх 9 конкурентах. Giphy є окремо. Меми є окремо. Редактор є окремо. Джерела: пряма перевірка capcut.com, kapwing.com, veed.io, clideo.com, canva.com — жодного Giphy/Tenor в редакторі.
