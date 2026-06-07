@@ -149,6 +149,22 @@
   tr:hover td { background: var(--surface); }
   .name-col { font-weight: 600; white-space: nowrap; }
 
+  /* GROUP LABELS */
+  .group-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin: 24px 0 12px;
+  }
+  .group-label.hard { background: rgba(248,113,113,.12); color: var(--red); border: 1px solid rgba(248,113,113,.25); }
+  .group-label.soft { background: rgba(96,165,250,.12); color: var(--blue); border: 1px solid rgba(96,165,250,.25); }
+  .group-label.aspirational { background: rgba(167,139,250,.12); color: #a78bfa; border: 1px solid rgba(167,139,250,.25); }
+
   /* SCORE CELLS */
   .score {
     display: inline-flex;
@@ -517,103 +533,137 @@
       <h2>Конкуренти</h2>
     </div>
 
-    <h3>Матриця</h3>
-    <p class="source-note">WebFetch: capcut.com, kapwing.com, veed.io, clideo.com, imgflip.com · Playwright screenshots: research/screens/ · Canva — тільки скрін (WebFetch 403) · TikTok editor, CapCut mobile, Instagram — <span class="unknown">?</span> за логіном</p>
+    <h3>Три групи конкурентів</h3>
+    <p class="source-note">WebFetch: capcut.com, kapwing.com, veed.io, clideo.com, imgflip.com · Playwright screenshots: research/screens/ · <span class="unknown">?</span> = за логіном, даних з редактора немає</p>
 
+    <div class="group-label hard">ХАРД — той самий продукт, та сама аудиторія</div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Конкурент</th>
-            <th>Аудиторія</th>
-            <th>Основа продукту</th>
-            <th>Ключовий механізм</th>
-            <th>Довіра</th>
-            <th>Монетизація</th>
-            <th>Бібліотека мемів</th>
+            <th>Назва</th>
+            <th>Тип</th>
+            <th>Чому в цій групі</th>
+            <th>Що вивчити для нашої задачі</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="name-col">CapCut Web</td>
-            <td>Широка, 16–30, всі соцмережі</td>
-            <td>AI-редактор + 873K+ шаблонів</td>
-            <td>AI-генерація + шаблони</td>
-            <td>ByteDance, NVIDIA, TikTok</td>
-            <td>Freemium; AI платно</td>
-            <td class="no-lib">Немає <span class="inline-src">[capcut-editor: login wall]</span></td>
+            <td>Веб відеоредактор</td>
+            <td>Найближчий по всіх параметрах: аудиторія 16–30, веб, тренди і звуки вбудовані. Вимагає логін одразу <span class="inline-src">[capcut-editor-desktop.png]</span></td>
+            <td>UX таймлайну на мобайлі · як організована бібліотека трендів · onboarding flow</td>
           </tr>
           <tr>
             <td class="name-col">Kapwing</td>
-            <td>Команди, маркетологи</td>
-            <td>AI відео з тексту + редактор</td>
-            <td>"Turn prompt into video"</td>
-            <td>Корпоративний tone</td>
-            <td>Freemium; UPGRADE в редакторі</td>
-            <td class="no-lib">Немає — тільки мем-шаблони (текст поверх фото)</td>
+            <td>Веб редактор із мем-шаблонами</td>
+            <td>Є мем-шаблони (текст поверх фото), але вбудованої GIF-бібліотеки немає. Важкий, не mobile-first — підтверджує що gap реальний навіть у найближчого конкурента <span class="inline-src">[kapwing-editor-desktop.png]</span></td>
+            <td>Freemium-межа · що входить у безкоштовний tier · чому пускає без логіну</td>
+          </tr>
+          <tr>
+            <td class="name-col">Canva Video</td>
+            <td>Дизайн-платформа з відео</td>
+            <td>Масова аудиторія креаторів, сильний onboarding, шаблони. Відео — не пріоритет, таймлайн слабкий <span class="inline-src">[canva-home-mobile.png]</span></td>
+            <td>Як спрощують складний інструмент до простого flow · onboarding перших кроків</td>
           </tr>
           <tr>
             <td class="name-col">Veed.io</td>
-            <td>Enterprise, маркетинг</td>
-            <td>AI-субтитри + редактор</td>
-            <td>Auto-subtitles, Eye Contact</td>
-            <td>Amazon / Netflix / Google</td>
-            <td>Freemium + Enterprise</td>
-            <td class="no-lib">Немає <span class="unknown">?</span></td>
+            <td>Веб редактор для соцмереж</td>
+            <td>Веб, mobile-friendly, фокус на контент-мейкерів. Більшість фіч платно <span class="inline-src">[veed.io]</span></td>
+            <td>Export UX · pricing tier · що дають безкоштовно і де стіна</td>
           </tr>
           <tr>
             <td class="name-col">Clideo</td>
-            <td>Масовий, побутові задачі</td>
-            <td>Простий набір онлайн-інструментів</td>
-            <td>"Edit it in any way"</td>
-            <td>5M юзерів, 366M відео</td>
-            <td>Freemium; watermark</td>
-            <td class="no-lib">Немає</td>
+            <td>Найпростіший веб редактор</td>
+            <td>Мінімальний scope — видно де нижня межа "достатньо". Немає таймлайну, тільки разові операції <span class="inline-src">[clideo-editor-desktop.png]</span></td>
+            <td>Що вважають мінімальним MVP · де їх ліміт по функціоналу</td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="group-label soft">СОФТ — інший продукт, той самий JTBD</div>
+    <p class="source-note" style="margin-bottom:12px">JTBD: "зробити вірусний мем-контент і викласти швидко"</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
           <tr>
-            <td class="name-col">Imgflip</td>
-            <td>Мем-мейкери, широка</td>
-            <td>Мем-генератор (статичні)</td>
-            <td>1M+ мем-шаблонів</td>
-            <td>Обсяг шаблонів</td>
-            <td>Free + watermark; Pro $4.95/mo; Pro+ $11.95/mo</td>
-            <td class="has-lib">Є — але тільки статичні, не відео</td>
+            <th>Назва</th>
+            <th>Тип</th>
+            <th>Чому в цій групі</th>
+            <th>Що вивчити для нашої задачі</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
-            <td class="name-col">Canva</td>
-            <td>Дизайнери, бізнес, широка</td>
-            <td>Дизайн-платформа, відео вторинне</td>
-            <td>Шаблони + drag&amp;drop</td>
-            <td>Бренд Canva</td>
-            <td>Freemium + Pro + Teams</td>
-            <td class="no-lib">Немає</td>
-          </tr>
-          <tr>
-            <td class="name-col">TikTok editor</td>
-            <td>TikTok, 16–25</td>
-            <td>Native editor у платформі</td>
-            <td>Тренди і звуки у стрічці</td>
-            <td>TikTok бренд</td>
-            <td>Безкоштовно</td>
-            <td class="partial-lib">Частково — стікери/GIF всередині TikTok <span class="unknown">?</span></td>
+            <td class="name-col">TikTok native editor</td>
+            <td>Редактор всередині платформи</td>
+            <td>Той самий JTBD без виходу з TikTok — головний конкурент за увагу. Прив'язаний до однієї платформи <span class="unknown">?</span></td>
+            <td>Як спрощують додавання звуку й ефектів · жести · швидкість від наміру до публікації</td>
           </tr>
           <tr>
             <td class="name-col">CapCut mobile</td>
-            <td>Мобайл-креатори, 16–30</td>
-            <td>Мобайл-відеоредактор</td>
-            <td>Зв'язок із TikTok трендами</td>
-            <td>ByteDance</td>
-            <td>Freemium</td>
-            <td class="no-lib">Немає — стікери є, Giphy немає <span class="unknown">?</span></td>
+            <td>Мобайл-застосунок</td>
+            <td>Золотий стандарт мобільного монтажу, та сама аудиторія. Потрібен акаунт, ByteDance <span class="unknown">?</span></td>
+            <td>Mobile-first UX рішення · жести на таймлайні · як організований доступ до трендів</td>
+          </tr>
+          <tr>
+            <td class="name-col">Mematic / ImgFlip</td>
+            <td>Мем-генератор (статичні)</td>
+            <td>Той самий юзер, але робить статичні меми, не відео. Має бібліотеку шаблонів <span class="inline-src">[imgflip.com]</span></td>
+            <td>Які шаблони найпопулярніші · формати мемів · freemium-модель $4.95</td>
           </tr>
           <tr>
             <td class="name-col">Giphy</td>
-            <td>Всі хто шукає GIF</td>
             <td>GIF-бібліотека і пошук</td>
-            <td>Trending endpoint, пошук</td>
-            <td>Масштаб бази</td>
-            <td>B2B API + реклама</td>
-            <td class="has-lib">Є — але тільки перегляд, редактора немає</td>
+            <td>Продукт який МемКат частково замінює — юзер більше не мусить іти в Giphy окремо <span class="inline-src">[giphy-home-mobile.png]</span></td>
+            <td>UX пошуку · механіка trending endpoint · вимоги атрибуції "Powered by GIPHY"</td>
+          </tr>
+          <tr>
+            <td class="name-col">Instagram Reels editor</td>
+            <td>Native editor для Reels</td>
+            <td>Той самий JTBD для Reels-аудиторії. Прив'язаний до Instagram <span class="unknown">?</span></td>
+            <td>Як вирішують накладання стікерів і тексту · UX вибору формату публікації</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="group-label aspirational">АСПІРАЦІЙНІ — міжнародні еталони в категорії</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Тип</th>
+            <th>Чому в цій групі</th>
+            <th>Що вивчити для нашої задачі</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name-col">Figma</td>
+            <td>Браузерний дизайн-інструмент</td>
+            <td>Еталон desktop-level performance у браузері без інсталяції. Складний інструмент з простим входом</td>
+            <td>Як досягають швидкості Canvas/WebGL у вебі · UX першого сеансу без туторіалу</td>
+          </tr>
+          <tr>
+            <td class="name-col">Pinterest</td>
+            <td>Візуальна бібліотека</td>
+            <td>Еталон discovery і пошуку візуального контенту у великій базі</td>
+            <td>UX бібліотеки · як організований trending feed · infinite scroll без втрати контексту</td>
+          </tr>
+          <tr>
+            <td class="name-col">Spotify</td>
+            <td>Стримінг + бібліотека</td>
+            <td>Еталон організації великого контенту + тренди + пошук в одному продукті</td>
+            <td>Як будують "Trending Now" · UX рекомендацій без ML на своїй стороні</td>
+          </tr>
+          <tr>
+            <td class="name-col">Linear</td>
+            <td>Веб-інструмент для команд</td>
+            <td>Еталон швидкості й якості продукту у браузері. Відчуття "миттєвого" інструменту</td>
+            <td>Принципи fast UX · як досягають відчуття нативного застосунку у вебі</td>
           </tr>
         </tbody>
       </table>
